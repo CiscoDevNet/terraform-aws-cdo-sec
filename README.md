@@ -17,7 +17,7 @@ The [CDO documentation](https://docs.defenseorchestrator.com/#!c-secure-event-co
 
 # Architecture
 
-![archiecture](architecture.png "Architecture")
+![archiecture](architecture.jpg "Architecture")
 
 The SEC is deployed on an R5A AWS instance which is placed behind an AWS Network Load Balancer. While it is possible for you to deploy the SEC in a public subnet, we recommend against it for security reasons (and you will have to perform manual operations such as assigning an IP address and starting up the SEC manually).
 
