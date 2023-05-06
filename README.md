@@ -1,6 +1,6 @@
 # Secure Event Connector Terraform module
 
-The Secure Event Connector (SEC) is a component of the Cisco Defense Orchestrator (CDO) Security Analytics and Logging (SAL) SaaS solution. It receives events from Secure Firewall Cloud Native and FDM-managed devices and forwards them to the Cisco cloud. CDO displays the events on the Event Logging page so that administrators can analyze them there or by using Cisco Secure Cloud analytics.
+The Secure Event Connector (SEC) is a component of the Cisco Defense Orchestrator (CDO) Security Analytics and Logging (SAL) SaaS solution. It receives events from Adaptive Security Appliance (ASA), Secure Firewall Cloud Native (SFCN) and FDM-managed devices and forwards them to the Cisco cloud. CDO displays the events on the Event Logging page so that administrators can analyze them there or by using Cisco Secure Cloud analytics.
 
 Use this Terraform module if you wish to deploy the SEC in your AWS VPC.
 
@@ -23,11 +23,12 @@ The SEC is deployed on an R5A AWS instance which is placed behind an AWS Network
 
 You can send events from your firewall to the SEC using TCP and UDP as you have always been able to. But additionally, you can use TLS to secure the events sent through. The NLB will terminate the TLS connection and decrypt the data before passing it through to the SEC.
 
-|| Port || Protocol ||
-| 10125 | TLS (TCP) |
+| Port  | Protocol        |
+| ----- | --------------- |
+| 10125 | TLS (TCP)       |
 | 10126 | TCP (unsecured) |
-| 10025 | UDP |
-| 10425 | Netflow |
+| 10025 | UDP             |
+| 10425 | Netflow         |
 
 ## Connecting to your SEC instance
 
