@@ -4,16 +4,16 @@ The Secure Event Connector (SEC) is a component of the Cisco Defense Orchestrato
 
 Use this Terraform module if you wish to deploy the SEC in your AWS VPC.
 
+## Learn more
+
+The [CDO documentation](https://docs.defenseorchestrator.com/#!c-secure-event-connectors.html) has more details on SAL and the SEC.
+
 # Pre-requisities
 - An AWS account
 - An AWS VPC with two public subnets in separate Availability Zones, and one private subnet
 - An AWS Route53 Hosted Zone
 - Terraform knowledge
 - A Cisco Defense Orchestrator Account with Security Analytics and Logging enabled (see the [CDO documentation](https://docs.defenseorchestrator.com/#!g-cisco-security-analytics-and-logging.html))
-
-# Documentation
-
-The [CDO documentation](https://docs.defenseorchestrator.com/#!c-secure-event-connectors.html) has more details on the SEC.
 
 # Architecture
 
@@ -37,6 +37,25 @@ Once this terraform module is applied, the SEC should be up and running. However
 # Usage
 
 Please see [the usage documentation](USAGE.md).
+
+## Examples
+
+```
+module "acme-corp-us-sec" {
+  source                     = "CiscoCdo/sec"
+  env                        = "us"
+  subnet_id                  = "<private-subnet>"
+  public_subnet_id           = "<replace-with-public-subnet>"
+  secondary_public_subnet_id = "<replace-with-public-subnet-in-different-az>"
+  vpc_id                     = "<replace-with-vpc-id>"
+  instance_name              = "acme-corp"
+  instance_size              = "r5a.xlarge"
+  cdo_bootstrap_data         = "<replace-with-cdo-bootstrap-data-from-cdo>"
+  sec_bootstrap_data         = "<replace-with-sec-bootstrap-data-from-cdo>"
+  dns_name                   = "<replace-with-dns-name-managed-by->"
+  hosted_zone_id             = "<replace-with-hosted-zone-id>"
+}
+```
 
 # Post-installation: Sending events to your SEC over TLS
 
