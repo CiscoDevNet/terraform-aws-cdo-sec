@@ -1,3 +1,11 @@
+terraform {
+  required_version = "1.3.9"
+  required_providers {
+    aws = "~> 4.66.1"
+    template = "~> 2.2.0"
+  }
+}
+
 data "aws_ami" "sec" {
   filter {
     name   = "name"
@@ -9,13 +17,9 @@ data "aws_ami" "sec" {
     values = ["x86_64"]
   }
 
-  owners      = ["692314432491"]
+  owners = ["692314432491"]
 
   most_recent = true
-}
-
-data "aws_vpc" "sec" {
-  id = var.vpc_id
 }
 
 resource "aws_security_group" "sec" {
@@ -34,7 +38,7 @@ resource "aws_security_group" "sec" {
     from_port   = 10025
     to_port     = 10025
     protocol    = "udp"
-    cidr_blocks =[var.cidr]
+    cidr_blocks = [var.cidr]
   }
 
   // netflow
@@ -74,5 +78,5 @@ resource "aws_instance" "sec" {
   }, var.tags)
   subnet_id              = var.subnet_id
   vpc_security_group_ids = [aws_security_group.sec.id]
-  user_data = data.template_file.bootstrap.rendered
+  user_data              = data.template_file.bootstrap.rendered
 }

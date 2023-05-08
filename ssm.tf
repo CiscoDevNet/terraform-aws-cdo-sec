@@ -21,10 +21,10 @@ resource "aws_iam_role" "sec-ssm-role" {
   name        = "${var.env}-${var.instance_name}-sec-ssm-role"
   path        = "/"
   description = "AWS IAM Role required for SSM managed access to the SEC"
-  tags = merge(var.tags, { 
-      Name: "${var.env}-sec-ssm-role" 
+  tags = merge(var.tags, {
+    Name : "${var.env}-sec-ssm-role"
   })
- 
+
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
 }
 
