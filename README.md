@@ -15,6 +15,16 @@ The [CDO documentation](https://docs.defenseorchestrator.com/#!c-secure-event-co
 - Terraform knowledge
 - A Cisco Defense Orchestrator Account with Security Analytics and Logging enabled (see the [CDO documentation](https://docs.defenseorchestrator.com/#!g-cisco-security-analytics-and-logging.html))
 
+# Supported Regions
+
+| Region       |
+| ------------ |
+| us-east-1    |
+| us-west-1    |
+| eu-west-1    |
+| eu-west-2    |
+| eu-central-1 |
+
 # Architecture
 
 ![archiecture](architecture.jpg "Architecture")
