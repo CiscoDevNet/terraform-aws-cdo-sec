@@ -80,6 +80,16 @@ resource "aws_lb_listener" "sec-aws-lb-listener-non-tls-tcp" {
 
 resource "aws_lb_listener" "sec-aws-lb-listener-udp-1" {
   load_balancer_arn = aws_lb.sec-aws-lb.id
+  port              = 514
+  protocol          = "UDP"
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.sec-udp-1-tg.arn
+  }
+}
+
+resource "aws_lb_listener" "sec-aws-lb-listener-udp-1" {
+  load_balancer_arn = aws_lb.sec-aws-lb.id
   port              = 10025
   protocol          = "UDP"
   default_action {
