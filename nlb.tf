@@ -78,7 +78,7 @@ resource "aws_lb_listener" "sec-aws-lb-listener-non-tls-tcp" {
   }
 }
 
-resource "aws_lb_listener" "sec-aws-lb-listener-udp-1" {
+resource "aws_lb_listener" "sec-aws-lb-listener-udp-0" {
   load_balancer_arn = aws_lb.sec-aws-lb.id
   port              = 514
   protocol          = "UDP"
