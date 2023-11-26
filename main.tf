@@ -13,12 +13,7 @@ locals {
 data "aws_ami" "sec" {
   filter {
     name   = "name"
-    values = ["cdo-connector*"]
-  }
-
-  filter {
-    name   = "tag:version"
-    values = [local.ami_version]
+    values = ["cdo-connector-${local.ami_version}-*"]
   }
 
   filter {
