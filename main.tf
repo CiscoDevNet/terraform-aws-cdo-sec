@@ -21,7 +21,7 @@ data "aws_ami" "sec" {
     values = ["x86_64"]
   }
 
-  owners = ["692314432491"]
+  owners = ["005087805285"]
 
   most_recent = true
 }
